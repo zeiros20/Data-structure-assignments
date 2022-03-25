@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="complexity_diff" type= "array_size_creator.py" name= "size_creator"></node>
+    <node pkg="complexity_diff" type= "sorting_algos.py" name= "time_output"></node>
+    <node name="rqt_multiplot" pkg="rqt_multiplot" type="rqt_multiplot"/>
+</launch>
