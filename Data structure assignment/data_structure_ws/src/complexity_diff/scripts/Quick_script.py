@@ -1,19 +1,24 @@
-def partition(arr, low, high):
-    i = (low-1)         # index of smaller element
-    pivot = arr[high]     # pivot
+import numpy as np
 
-    for j in range(low, high):
-    
-        # If current element is smaller than or
-        # equal to pivot
-        if arr[j] <= pivot:
-     
-            # increment index of smaller element
-            i = i+1
-            arr[i], arr[j] = arr[j], arr[i]
-
-    arr[i+1], arr[high] = arr[high], arr[i+1]
-    return (i+1)
+def partition(arr, l, h):
+    pivot_index = np.random.randint(l, h)
+    if pivot_index == l:
+        lastS1 = l
+        first = l+1
+    else:
+        first = l
+        lastS1 = l-1
+    while first <= h:
+        if arr[first] < arr[pivot_index]:
+            lastS1 += 1
+            if lastS1 == pivot_index:
+                lastS1 += 1
+            arr[first], arr[lastS1] = arr[lastS1], arr[first]
+        first += 1
+    if lastS1 < pivot_index:
+        lastS1 += 1
+    arr[pivot_index], arr[lastS1] = arr[lastS1], arr[pivot_index]
+    return lastS1
 
 def quickSort(arr, low, high):
     if len(arr) == 1:
