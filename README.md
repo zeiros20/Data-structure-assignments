@@ -9,3 +9,8 @@ IN TERMINAL:
 
 
 -To launch the program type: roslaunch complexity_diff graphing.launch
+
+IN rqt_multiplot:
+
+
+-load configuration in assignment file
